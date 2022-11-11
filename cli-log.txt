@@ -1,0 +1,21 @@
+curl -LOJ https://github.com/nuvolaris/nuvolaris-cli/releases/download/v0.2.2-trinity.22072521/nuv-v0.2.2-trinity.22072521-darwin-amd64.tar.gz
+
+npx degit marcosantonastasi/nuv-emoji-voting .
+
+npm install
+
+npm run dev
+
+mkdir actions
+
+./nuv setup --devcluster
+
+./nuv package update emojivote
+
+./nuv action update emojivote/question-create ./actions/question-create.js  --web true
+
+./nuv action update emojivote/rating-create ./actions/rating-create.js  --web true
+
+./nuv action update emojivote/question-read ./actions/question-read.js  --web true
+
+./nuv action update emojivote/question-stats ./actions/question-stats.js  --web true
